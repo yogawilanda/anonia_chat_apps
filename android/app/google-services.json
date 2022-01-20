@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "426084836624",
+    "project_id": "nganonim-da9f0",
+    "storage_bucket": "nganonim-da9f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426084836624:android:eb2c3a5603b9a79ab83195",
+        "android_client_info": {
+          "package_name": "com.example.anonia_chat_apps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426084836624-83ls90a68722b4bqmrio4fbabpschd0e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.anonia_chat_apps",
+            "certificate_hash": "08e538c865e20e9d6246568bc0a19779b06e75f3"
+          }
+        },
+        {
+          "client_id": "426084836624-g9et3c85vsssghh0b3pedlm2ilr1losg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEtxvm1xB6NvD3jBk4Yiscw2B_fahljac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426084836624-g9et3c85vsssghh0b3pedlm2ilr1losg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
