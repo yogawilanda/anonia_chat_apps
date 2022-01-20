@@ -13,7 +13,7 @@ class ProfileView extends GetView<ProfileController> {
           elevation: 0,
           backgroundColor: Colors.white,
           foregroundColor: Colors.blue,
-          title: Text('Profil kamu'),
+          title: const Text('Profil kamu'),
           centerTitle: true,
           leading: IconButton(
               onPressed: () {
@@ -36,11 +36,11 @@ class ProfileView extends GetView<ProfileController> {
                 Container(
                   width: 175,
                   height: 175,
-                  margin: EdgeInsets.all(12),
+                  margin: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                       color: Colors.black38,
                       borderRadius: BorderRadius.circular(100),
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         image: NetworkImage(''),
                       )),
                 ),
@@ -48,11 +48,11 @@ class ProfileView extends GetView<ProfileController> {
                     alignment: Alignment.center,
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           'Username',
                           style: TextStyle(color: Colors.black87, fontSize: 22),
                         ),
-                        Text(
+                        const Text(
                           'Status',
                           style: TextStyle(color: Colors.black87, fontSize: 18),
                         ),
@@ -60,38 +60,113 @@ class ProfileView extends GetView<ProfileController> {
                     ))
               ],
             )),
-            Container(
-              child: Column(
-                children: const [
-                  ListTile(
-                    leading: Icon(Icons.note_add_rounded),
-                    title: Text(
-                      'Update Status',
-                      style: TextStyle(fontSize: 22),
+            const SizedBox(
+              height: 24,
+            ),
+            Expanded(
+              child: Container(
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.note_add_rounded),
+                      title: Text(
+                        'Update Status',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      onTap: () {
+                        Get.bottomSheet(
+                            Container(
+                              child: Wrap(
+                                children: <Widget>[
+                                  Container(
+                                    width: Get.width,
+                                    child: Text(
+                                      'Current Status',
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                        fillColor: Colors.white,
+                                        filled: true,
+                                        hintText: "change your status here",
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                          gapPadding: 12,
+                                          borderSide: BorderSide.none,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            backgroundColor: Colors.white);
+                      },
+                      trailing: Icon(Icons.arrow_right),
                     ),
-                    trailing: Icon(Icons.arrow_right),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.note_add_rounded),
-                    title: Text(
-                      'Edit Profile',
-                      style: TextStyle(fontSize: 22),
+                    ListTile(
+                      leading: Icon(Icons.note_add_rounded),
+                      onTap: () {
+                        Get.bottomSheet(
+                            Container(
+                              child: Wrap(
+                                children: <Widget>[
+                                  Container(
+                                    width: Get.width,
+                                    child: Text(
+                                      'Current Profile',
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: TextField(
+                                      controller: controller.statusConts,
+                                      decoration: InputDecoration(
+                                        fillColor: Colors.white,
+                                        filled: true,
+                                        hintText: "change your status here",
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                          gapPadding: 12,
+                                          borderSide: BorderSide.none,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            backgroundColor: Colors.white);
+                     
+                      },
+                      title: Text(
+                        'Edit Profile',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      trailing: Icon(Icons.arrow_right),
                     ),
-                    trailing: Icon(Icons.arrow_right),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.note_add_rounded),
-                    title: Text(
-                      'Change Theme',
-                      style: TextStyle(fontSize: 22),
+                    ListTile(
+                      leading: Icon(Icons.note_add_rounded),
+                      title: Text(
+                        'Change Theme',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      trailing: Text('Light'),
                     ),
-                    trailing: Text('Light'),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Container(
-              padding: EdgeInsets.all(8.0),
+              margin: EdgeInsets.only(
+                  bottom: context.mediaQueryPadding.bottom + 10),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
