@@ -10,48 +10,56 @@ class ChatroomView extends GetView<ChatroomController> {
   // final String chat_id = (Get.arguments as Map<String, dynamic>)["chat_id"];
   final FocusNode _focusNode = FocusNode();
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('ChatroomView'),
-        centerTitle: true,
+      appBar: PreferredSize(
+        child: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(),
+              SizedBox(
+                width: 12,
+              ),
+              Text('Kaifa'),
+            ],
+          ),
+          centerTitle: true,
+        ),
+        preferredSize: Size.fromHeight(100),
       ),
       body: Container(
         child: Column(
           children: [
-           Flexible(child: 
-           ListView.builder(
-             itemCount: 20,
-             itemBuilder: (context, index) => ListTile(),
-           ),
-           ),
-           Align(
-             alignment: Alignment.bottomCenter,
-             child: TextField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    suffixIcon: IconButton(
-                      icon: Icon(Icons.send_rounded),
-                      onPressed: () {},
-                    ),
-                    hintText: "search someone here",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      gapPadding: 12,
-                      borderSide: BorderSide.none,
-                    ),
+            Flexible(
+              child: ListView.builder(
+                itemCount: 20,
+                itemBuilder: (context, index) => ListTile(),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: TextField(
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.send_rounded),
+                    onPressed: () {},
+                  ),
+                  hintText: "search someone here",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    gapPadding: 12,
+                    borderSide: BorderSide.none,
                   ),
                 ),
-           )
+              ),
+            )
           ],
         ),
       ),
     );
   }
 }
-
-

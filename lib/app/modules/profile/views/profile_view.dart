@@ -1,4 +1,5 @@
 import 'package:anonia_chat_apps/app/modules/chatroom/views/chatroom_view.dart';
+import 'package:expendable_fab/expendable_fab.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -6,9 +7,12 @@ import 'package:get/get.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
+  const ProfileView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
@@ -45,122 +49,28 @@ class ProfileView extends GetView<ProfileController> {
                       )),
                 ),
                 Align(
-                    alignment: Alignment.center,
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Username',
-                          style: TextStyle(color: Colors.black87, fontSize: 22),
-                        ),
-                        const Text(
-                          'Status',
-                          style: TextStyle(color: Colors.black87, fontSize: 18),
-                        ),
-                      ],
-                    ))
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Username',
+                        style: TextStyle(color: Colors.black87, fontSize: 22),
+                      ),
+                      const Text(
+                        'Status',
+                        style: TextStyle(color: Colors.black87, fontSize: 18),
+                      ),
+                      const Chip(
+                        label: Text('#Techno'),
+                      ),
+                    ],
+                  ),
+                )
               ],
             )),
-            const SizedBox(
-              height: 24,
-            ),
             Expanded(
-              child: Container(
-                child: Column(
-                  children: [
-                    ListTile(
-                      leading: Icon(Icons.note_add_rounded),
-                      title: Text(
-                        'Update Status',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      onTap: () {
-                        Get.bottomSheet(
-                            Container(
-                              child: Wrap(
-                                children: <Widget>[
-                                  Container(
-                                    width: Get.width,
-                                    child: Text(
-                                      'Current Status',
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child: TextField(
-                                      decoration: InputDecoration(
-                                        fillColor: Colors.white,
-                                        filled: true,
-                                        hintText: "change your status here",
-                                        border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                          gapPadding: 12,
-                                          borderSide: BorderSide.none,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            backgroundColor: Colors.white);
-                      },
-                      trailing: Icon(Icons.arrow_right),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.note_add_rounded),
-                      onTap: () {
-                        Get.bottomSheet(
-                            Container(
-                              child: Wrap(
-                                children: <Widget>[
-                                  Container(
-                                    width: Get.width,
-                                    child: Text(
-                                      'Current Profile',
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child: TextField(
-                                      controller: controller.statusConts,
-                                      decoration: InputDecoration(
-                                        fillColor: Colors.white,
-                                        filled: true,
-                                        hintText: "change your status here",
-                                        border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                          gapPadding: 12,
-                                          borderSide: BorderSide.none,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            backgroundColor: Colors.white);
-                     
-                      },
-                      title: Text(
-                        'Edit Profile',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      trailing: Icon(Icons.arrow_right),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.note_add_rounded),
-                      title: Text(
-                        'Change Theme',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      trailing: Text('Light'),
-                    ),
-                  ],
-                ),
+              child: const SizedBox(
+                height: 24,
               ),
             ),
             Container(
@@ -182,6 +92,20 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
           ],
-        ));
+        ),
+        floatingActionButton: ExpendableFab(distance: 100, children: [
+          ActionButton(
+            onPressed: () {},
+            icon: const Icon(Icons.edit_outlined),
+          ),
+          ActionButton(
+            onPressed: () {},
+            icon: const Icon(Icons.settings),
+          ),
+          ActionButton(
+            onPressed: () {},
+            icon: const Icon(Icons.share),
+          ),
+        ]));
   }
 }

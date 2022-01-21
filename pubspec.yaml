@@ -13,6 +13,7 @@ dependencies:
   firebase_auth: ^3.3.5
   lottie: 1.2.1
   introduction_screen: 2.1.0
+  expendable_fab: 0.0.3
   flutter: 
     sdk: flutter
 
