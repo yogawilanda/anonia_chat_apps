@@ -13,21 +13,45 @@ class ChatroomView extends GetView<ChatroomController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        child: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(),
-              SizedBox(
-                width: 12,
+      appBar: 
+      
+      AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Get.to(ChatroomView());
+            },
+            icon: const Icon(Icons.arrow_back)),
+        elevation: 2,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.blue,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: ListTile(
+            isThreeLine: true,
+            subtitle: Text('Online'),
+            title: Text('Kaifa'),
+            leading: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(
+                    width: 3, style: BorderStyle.solid, color: Colors.green),
               ),
-              Text('Kaifa'),
-            ],
+              child: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  image: const DecorationImage(
+                      image: NetworkImage(
+                        'https://www.allstars.id/blog/wp-content/uploads/2021/07/selebgram-cantik-shakilla-astari-819x1024.jpg',
+                      ),
+                      fit: BoxFit.cover),
+                ),
+              ),
+            ),
           ),
-          centerTitle: true,
         ),
-        preferredSize: Size.fromHeight(100),
       ),
       body: Container(
         child: Column(
@@ -48,7 +72,7 @@ class ChatroomView extends GetView<ChatroomController> {
                     icon: Icon(Icons.send_rounded),
                     onPressed: () {},
                   ),
-                  hintText: "search someone here",
+                  hintText: "Type something",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                     gapPadding: 12,
