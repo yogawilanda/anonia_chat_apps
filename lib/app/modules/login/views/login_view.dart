@@ -34,7 +34,7 @@ class LoginView extends GetView<LoginController> {
                 height: 60,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.to(HomeView());
+                    Get.to(() => HomeView());
                   },
                   child: Row(
                     children: const [

@@ -28,52 +28,50 @@ class SearchView extends GetView<SearchController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: PreferredSize(
-          child: AppBar(
-            title: const Text('SearchView'),
-            leading: IconButton(
-                onPressed: () {
-                  Get.to(ChatroomView());
-                },
-                icon: const Icon(Icons.arrow_back)),
-            centerTitle: true,
-            flexibleSpace: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: TextField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    suffixIcon: IconButton(
-                      icon: Icon(Icons.search),
-                      onPressed: () {},
-                    ),
-                    hintText: "search someone here",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      gapPadding: 12,
-                      borderSide: BorderSide.none,
-                    ),
+    return Scaffold(
+      appBar: PreferredSize(
+        child: AppBar(
+          title: const Text('SearchView'),
+          leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(Icons.arrow_back)),
+          centerTitle: true,
+          flexibleSpace: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: TextField(
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {},
+                  ),
+                  hintText: "search someone here",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    gapPadding: 12,
+                    borderSide: BorderSide.none,
                   ),
                 ),
               ),
             ),
           ),
-          preferredSize: const Size.fromHeight(150),
         ),
-        body: friends.length == 0
-            ? Center(
-              child: Text('Kamu masih belum punya teman nih, cari yuk?'),
-            )
-            : ListView.builder(
-                itemCount: friends.length,
-                itemBuilder: (context, index) => friends[index],
-              ),
+        preferredSize: const Size.fromHeight(150),
       ),
+      body: friends.length == 0
+          ? Center(
+            child: Text('Kamu masih belum punya teman nih, cari yuk?'),
+          )
+          : ListView.builder(
+              itemCount: friends.length,
+              itemBuilder: (context, index) => friends[index],
+            ),
     );
   }
 }
