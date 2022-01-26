@@ -1,27 +1,16 @@
-import 'package:anonia_chat_apps/app/modules/chatroom/views/chatroom_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ChatroomController extends GetxController {
-  late TextEditingController textEditor = TextEditingController();
+  final textEditor = TextEditingController();
   final textNode = FocusNode();
   final scrollCtrl = ScrollController();
   final messages = <String>[].obs;
 
-  void onSend() {
-    textEditor.clear();
-    if (textEditor.text.isEmpty) return;
-    if (textEditor.text.isNotEmpty) {
-      return messages.add(textEditor.text);
-    }
-    textEditor.text = '';
-    update();
-  }
-
   @override
   void onInit() {
-    textEditor.obs;
-    textNode.obs;
+    textEditor;
+    textNode;
     scrollCtrl;
     super.onInit();
   }
@@ -32,5 +21,13 @@ class ChatroomController extends GetxController {
     textNode.dispose();
     scrollCtrl;
     super.onClose();
+  }
+
+  void onSend() {
+    if (textEditor.text.isEmpty) return;
+    messages.add(textEditor.text);
+    textEditor.text = '';
+    //to let user keep using text editor even after user send the message.
+    textEditor.clear();
   }
 }
