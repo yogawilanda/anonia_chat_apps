@@ -2,18 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class ChatroomController extends GetxController {
-  String chatValue = '';
-  final TextEditingController chatController = TextEditingController();
+  final RxList _messages = [].obs;
+  final chatController = TextEditingController();
 
-  final count = 0.obs;
   @override
-  void onInit() {
+  void onSend() {
     super.onInit();
-  }
-
-  @override
-  onSend() {
     chatController.text;
+    _messages.toString();
   }
 
   @override
@@ -23,5 +19,4 @@ class ChatroomController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }

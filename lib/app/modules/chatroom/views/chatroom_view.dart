@@ -9,6 +9,7 @@ class ChatroomView extends GetView<ChatroomController> {
   final AuthConts = Get.find<AuthController>();
   // final String chat_id = (Get.arguments as Map<String, dynamic>)["chat_id"];
   final FocusNode _focusNode = FocusNode();
+  final ChatroomController controller = Get.put(ChatroomController());
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class ChatroomView extends GetView<ChatroomController> {
               child: Container(
                 child: Obx(
                   () {
-                    return Text(controller.chatValue);
+                    return Text(controller.onSend.toString());
                   },
                 ),
               ),
@@ -38,10 +39,7 @@ class ChatroomView extends GetView<ChatroomController> {
                   filled: true,
                   suffixIcon: IconButton(
                     icon: Icon(Icons.send_rounded),
-                    onPressed: () {
-                      ChatroomController controller =
-                          Get.put(ChatroomController());
-                    },
+                    onPressed: controller.onSend,
                   ),
                   hintText: "chat someone here",
                   border: OutlineInputBorder(
