@@ -14,8 +14,9 @@ class HomeView extends GetView<HomeController> {
   final List<Widget> personChat = List.generate(
     20,
     (index) => ListTile(
-      leading: const CircleAvatar(
+      leading: CircleAvatar(
         radius: 30,
+        backgroundImage: NetworkImage('https://picsum.photos/200/300.jpg'),
       ),
       title: Text('Orang ke ${index + 1}'),
       subtitle: Text('Chat orang ke ${index + 1}'),
@@ -96,14 +97,13 @@ class HomeView extends GetView<HomeController> {
             ListTile(
               title: const Text('Settings'),
               onTap: () {
-                Get.snackbar('Sorry', 'We\'re still working on it', margin: EdgeInsets.only(top: 12));
+                Get.snackbar('Sorry', 'We\'re still working on it',
+                    margin: EdgeInsets.only(top: 12));
               },
             ),
             ListTile(
               title: const Text('About Us'),
-              onTap: () {
-                
-              },
+              onTap: () {},
             ),
             ListTile(
               title: const Text('Settings'),

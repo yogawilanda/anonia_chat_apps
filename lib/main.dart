@@ -37,10 +37,7 @@ class MyApp extends StatelessWidget {
             future: Future.delayed(const Duration(seconds: 0)),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                return 
-                
-                
-                Obx(
+                return Obx(
                   () => GetMaterialApp(
                     title: "Application",
                     debugShowCheckedModeBanner: false,
@@ -49,8 +46,8 @@ class MyApp extends StatelessWidget {
                         ? authCont.isAuthented.isTrue
                             ? Routes.HOME
                             : Routes.LOGIN
-                            //change this to Introduction after debugging.
-                        : Routes.PROFILE,
+                        //change this to Introduction after debugging.
+                        : Routes.HOME,
                     getPages: AppPages.routes,
                   ),
                 );
@@ -66,14 +63,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 final ThemeData appThemeData = ThemeData(
   primaryColor: Colors.white,
   backgroundColor: Colors.white,
-
   fontFamily: 'Arial',
   textTheme: const TextTheme(
     headline1: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
-    bodyText1: TextStyle(fontSize:14),
+    bodyText1: TextStyle(fontSize: 14),
   ),
 );

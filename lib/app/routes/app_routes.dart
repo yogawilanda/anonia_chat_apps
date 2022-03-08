@@ -9,6 +9,8 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const CHATROOM = _Paths.CHATROOM;
   static const SEARCH = _Paths.SEARCH;
+  static const SETTING = _Paths.SETTING;
+  static const WIDGET_TEST = _Paths.WIDGET_TEST;
 }
 
 abstract class _Paths {
@@ -19,4 +21,6 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const CHATROOM = '/chatroom';
   static const SEARCH = '/search';
+  static const SETTING = '/setting';
+  static const WIDGET_TEST = '/widget-test';
 }

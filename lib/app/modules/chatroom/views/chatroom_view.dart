@@ -10,8 +10,6 @@ class ChatroomView extends GetView<ChatroomController> {
   // final String chat_id = (Get.arguments as Map<String, dynamic>)["chat_id"];
   final FocusNode _focusNode = FocusNode();
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,36 +20,41 @@ class ChatroomView extends GetView<ChatroomController> {
       body: Container(
         child: Column(
           children: [
-           Flexible(child: 
-           ListView.builder(
-             itemCount: 20,
-             itemBuilder: (context, index) => ListTile(),
-           ),
-           ),
-           Align(
-             alignment: Alignment.bottomCenter,
-             child: TextField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    suffixIcon: IconButton(
-                      icon: Icon(Icons.send_rounded),
-                      onPressed: () {},
-                    ),
-                    hintText: "search someone here",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      gapPadding: 12,
-                      borderSide: BorderSide.none,
-                    ),
+            Flexible(
+              child: Container(
+                child: Obx(
+                  () {
+                    return Text(controller.chatValue);
+                  },
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: TextField(
+                onEditingComplete: () => controller.chatController,
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.send_rounded),
+                    onPressed: () {
+                      ChatroomController controller =
+                          Get.put(ChatroomController());
+                    },
+                  ),
+                  hintText: "chat someone here",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    gapPadding: 12,
+                    borderSide: BorderSide.none,
                   ),
                 ),
-           )
+              ),
+            )
           ],
         ),
       ),
     );
   }
 }
-
-
