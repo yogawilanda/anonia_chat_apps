@@ -12,51 +12,59 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
+      body: Container(
+        padding: EdgeInsets.all(6),
+        child: Row(
           children: [
-            const SizedBox(
-              height: 50,
-            ),
-            SizedBox(
-              width: 250,
-              height: 250,
-              child: Image.network(
-                  'https://img.freepik.com/free-vector/people-putting-puzzle-pieces-together_52683-28610.jpg?size=626&ext=jpg',
-                  fit: BoxFit.cover),
-            ),
-            // const SizedBox(
-            //   height: 300,
-            // ),
-            SizedBox(
-              width: 300,
-              height: 60,
-              child: ElevatedButton(
-                onPressed: () {
-                  Get.to(HomeView());
-                },
-                child: Row(
-                  children: const [
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Icon(
-                      Icons.g_mobiledata,
-                      size: 36,
-                    ),
-                    Text(
-                      'Login with google',
-                      style: TextStyle(fontSize: 24),
-                    ),
-                  ],
-                ),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14), // <-- Radius
+            Container(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 50,
                   ),
-                ),
+                  SizedBox(
+                    child: Image.network(
+                        'https://cdni.iconscout.com/illustration/premium/thumb/people-using-social-media-application-2890207-2407184.png',
+                        fit: BoxFit.cover),
+                  ),
+                  SizedBox(
+                    width: 300,
+                    height: 60,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Get.to(() => HomeView());
+                      },
+                      child: Row(
+                        children: const [
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Icon(
+                            Icons.g_mobiledata,
+                            size: 36,
+                          ),
+                          Text(
+                            'Login with google',
+                            style: TextStyle(fontSize: 24),
+                          ),
+                        ],
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14), // <-- Radius
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
+            Container(
+                color: Colors.black,
+                child: Form(
+                    child: Column(
+                  children: [],
+                ))),
           ],
         ),
       ),

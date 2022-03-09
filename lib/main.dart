@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
                             ? Routes.HOME
                             : Routes.LOGIN
                         //change this to Introduction after debugging.
-                        : Routes.LOGIN,
+                        : Routes.CHATROOM,
                     getPages: AppPages.routes,
                   ),
                 );

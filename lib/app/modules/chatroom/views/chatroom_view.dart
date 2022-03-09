@@ -9,31 +9,26 @@ class ChatroomView extends GetView<ChatroomController> {
   final AuthConts = Get.find<AuthController>();
   // final String chat_id = (Get.arguments as Map<String, dynamic>)["chat_id"];
   final FocusNode _focusNode = FocusNode();
-  final ChatroomController controller = Get.put(ChatroomController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ChatroomView'),
+        title: Text('Users'),
         centerTitle: true,
+        actions: [ElevatedButton(onPressed: () {}, child: Icon(Icons.menu))],
       ),
       body: Container(
         child: Column(
           children: [
             Flexible(
-              child: Container(
-                child: Obx(
-                  () {
-                    return Text(controller.onSend.toString());
-                  },
-                ),
-              ),
+              child: ListView.builder(
+                  itemBuilder: (context, index) => ChatBubble()),
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: TextField(
-                onEditingComplete: () => controller.chatController,
+                onEditingComplete: () => controller.onSend(),
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   filled: true,
@@ -53,6 +48,35 @@ class ChatroomView extends GetView<ChatroomController> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ChatBubble extends StatefulWidget {
+  const ChatBubble({Key? key}) : super(key: key);
+
+  @override
+  State<ChatBubble> createState() => _ChatBubbleState();
+}
+
+class _ChatBubbleState extends State<ChatBubble> {
+  final RxString chatBubblesMethod = ''.obs;
+  ChatroomController controller = Get.put(ChatroomController());
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return chatBubblesResult();
+  }
+
+  Container chatBubblesResult() {
+    return Container(
+      child: Text(controller.chatController.text),
     );
   }
 }

@@ -27,7 +27,7 @@ class HomeView extends GetView<HomeController> {
         ),
       ),
       onTap: () {
-        Get.to(ChatroomView());
+        Get.to(() => ChatroomView());
       },
     ),
   ).reversed.toList();
@@ -66,7 +66,7 @@ class HomeView extends GetView<HomeController> {
         padding: const EdgeInsets.all(12.0),
         child: FloatingActionButton(
           onPressed: () {
-            Get.to(SearchView());
+            Get.to(() => SearchView());
           },
           child: const Icon(Icons.search),
         ),
@@ -91,7 +91,7 @@ class HomeView extends GetView<HomeController> {
             ListTile(
               title: const Text('Profile'),
               onTap: () {
-                Get.to(ProfileView());
+                Get.to(() => ProfileView());
               },
             ),
             ListTile(

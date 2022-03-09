@@ -10,6 +10,7 @@ class ChatroomController extends GetxController {
     super.onInit();
     chatController.text;
     _messages.toString();
+    print(chatController.text);
   }
 
   @override
